@@ -14,7 +14,7 @@ opt = optim.Adam(model.parameters(), lr = 0.001)
 
 
 
-def train(epochs, X, y, model, loss_function, opt, train_loader, val_loader):
+def train(epochs, model, loss_function, opt, train_loader, val_loader):
     accu_train_loss = []
     accu_val_loss = []
     accu_val_accuracy = []
@@ -78,3 +78,4 @@ def train(epochs, X, y, model, loss_function, opt, train_loader, val_loader):
                 accu_val_loss.append(val_batch_loss.item())
                 accu_val_precision.append(precision)
 
+    return accu_train_loss, accu_val_loss, accu_train_accuracy, accu_val_accuracy, accu_train_precision, accu_val_precision, accu_iteration, model
