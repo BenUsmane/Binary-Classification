@@ -21,12 +21,26 @@ if __name__ == "__main__":
         train_loader,
         val_loader
     )
-plt.plot(accu_iteration, accu_train_accuracy, c='red')
-plt.plot(accu_iteration, accu_val_accuracy, c='green')
+    fig , axis = plt.subplots(2,2, figsize=(10,10))
 
-plt.legend(['train accuracy', 'val accuracy'])
-plt.xlabel('iteration')
-plt.ylabel('accuracy')
+    axis[0,0].plot(accu_iteration, accu_train_accuracy, c='red')
+    axis[0,0].plot(accu_iteration, accu_val_accuracy, c='green')
+    axis[0,0].legend(["train accuracy", "val accuracy"])
+    axis[0,0].set_xlabel('iteration')
+    axis[0,0].set_ylabel('accuracy')
+
+    axis[0,1].plot(accu_iteration, accu_train_precision, c='red')
+    axis[0,1].plot(accu_iteration, accu_val_precision, c='green')
+    axis[0,1].legend(["train precision", "val precision"])
+    axis[0,1].set_xlabel('iteration')
+    axis[0,1].set_ylabel('Precision')
+
+    axis[1,0].plot(accu_iteration, accu_train_loss, c='red')
+    axis[1,0].plot(accu_iteration, accu_val_loss, c='green')
+    axis[1,0].legend(["train Loss", "val Loss"])
+    axis[1,0].set_xlabel('iteration')
+    axis[1,0].set_ylabel('Loss')
+    
 
 
-plt.show()
+    plt.show()
