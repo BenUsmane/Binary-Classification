@@ -12,7 +12,7 @@ model = MyModel()
 
 loss_function = nn.BCEWithLogitsLoss()
 opt = optim.Adam(model.parameters(), lr = 0.001)
-
+model_path = Path('./model.pth')
 
 epochs = 50
 if __name__ == "__main__":
