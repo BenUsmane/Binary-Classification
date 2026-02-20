@@ -3,6 +3,7 @@ from model.train import train
 from torch import nn, optim
 from data.data import train_loader, val_loader
 import matplotlib.pyplot as plt
+import torch
 
 
 model = MyModel()
@@ -41,6 +42,6 @@ if __name__ == "__main__":
     axis[1,0].set_xlabel('iteration')
     axis[1,0].set_ylabel('Loss')
     
-
-
     plt.show()
+    torch.save(model.state_dict(),'./model.pth')
+    
