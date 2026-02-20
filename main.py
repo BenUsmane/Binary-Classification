@@ -16,7 +16,7 @@ opt = optim.Adam(model.parameters(), lr = 0.001)
 
 epochs = 50
 if __name__ == "__main__":
-
+    
     model_path = Path('./model.pth')
     if model_path :
         print("the model is here")
