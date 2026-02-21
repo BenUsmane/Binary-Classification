@@ -1,16 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import torch
-
-
-from main import model_path
-
 from model.model import MyModel
 from data.data import device
 
 
 model = MyModel()
-model.load_state_dict(torch.load(model_path, map_location=device))
+
+model.load_state_dict(torch.load('api/model.pth', map_location=device))
 model.eval()
 
 

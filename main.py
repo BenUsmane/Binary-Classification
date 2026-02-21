@@ -5,6 +5,7 @@ from data.data import train_loader, val_loader, device
 import matplotlib.pyplot as plt
 import torch
 
+
 from pathlib import Path
 
 
@@ -12,13 +13,13 @@ model = MyModel()
 
 loss_function = nn.BCEWithLogitsLoss()
 opt = optim.Adam(model.parameters(), lr = 0.001)
-model_path = Path('./model.pth')
+model_path = Path('./api/model.pth')
 
 epochs = 50
 if __name__ == "__main__":
     
-    model_path = Path('./model.pth')
-    if model_path :
+    model_path = Path('./api/model.pth')
+    if model_path.exists():
         print("the model is here")
         model.load_state_dict(torch.load(model_path,map_location=device))
         print(model)
@@ -53,5 +54,5 @@ if __name__ == "__main__":
         axis[1,0].set_ylabel('Loss')
         
         plt.show()
-        torch.save(model.state_dict(),'./model.pth')
+        torch.save(model.state_dict(),'./api/model.pth')
     
