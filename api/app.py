@@ -3,9 +3,10 @@ from pydantic import BaseModel
 import torch
 from model.model import MyModel
 from data.data import device
-
+import uvicorn
 
 model = MyModel()
+
 
 model.load_state_dict(torch.load('api/model.pth', map_location=device))
 model.eval()
