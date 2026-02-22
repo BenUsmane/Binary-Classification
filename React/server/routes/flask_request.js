@@ -1,7 +1,7 @@
 express = require('express');
 const router = express.Router()
 
-router.post('predict', async (req, res) => {
+router.post('/predict', async (req, res) => {
     const data = req.body
     try{
         const response = await fetch ("http://localhost:8000/predict", {
