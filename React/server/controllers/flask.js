@@ -1,7 +1,8 @@
 const expresss = require("express")
 
-const postFlaskData = async (data) => {
+const postFlaskData = async (req, res) => {
     const data = req.body
+    console.log("Received data from client:", data)
     try{
         const response = await fetch ("http://localhost:8000/predict", {
             method : 'POST',

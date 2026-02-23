@@ -1,34 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
 
+function App () {
+  useEffect(() =>{
+  //   fetch('http://localhost:3000/api/predict', {
+  //     method : "POST",
+  //     headers : {
+  //       "content-type " : "application/json"
+  //   },
+  //   body : JSON.stringify({
+  //     "features": 
+  //   })
+  // })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data))
+  //     .catch(error => console.error('Error:', error))
+  fetch('http://localhost:3000/api/')
+    .then(res => res.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error))
+    const data = {"features" : [5,3,2,3,4,5,4,3,2,5,5,3,2,3,4,5,4,3,2,5,5,3,2,3,4,5,4,3,2,5] }
+
+    fetch("http://localhost:3000/api/predict/",{
+      "method" : "POST",
+      "headers" : {
+        "content-type" : "application/json" 
+      },
+      "body" : JSON.stringify(data)
+      
+    })
+    .then(res => res.text())
+    .then(data => console.log(data))
+    .catch(error => console.error("error happened ", error))
+},[])
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <form action="">
+          <input type="text" name="name" placeholder="Enter your name" />
+          <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 
