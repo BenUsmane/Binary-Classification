@@ -34,9 +34,9 @@ function App () {
     .catch(error => console.error("error happened ", error))
 },[])
   return (
-    <div>
+    <div className="m-14 bg-gray-100 text-amber-700 flex items-center justify-center">
       <form action="">
-          <input type="text" name="name" placeholder="Enter your name" />
+          <input className="red-200" type="text" name="name" placeholder="Enter your name" />
           <button type="submit">Submit</button>
       </form>
     </div>
